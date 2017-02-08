@@ -1,0 +1,15 @@
+import network 
+ap_if = network.WLAN(network.AP_IF)
+ap_if.active(False)
+sta_if = network.WLAN(network.STA_IF) 
+sta_if.connect('EERover', 'exhibition')
+
+from umqtt.simple import MQTTClient
+id = machine.unique_id()
+BROKER_ADDRESS = "192.168.0.56"
+client = MQTTClient(id,BROKER_ADDRESS)
+client.connect()
+TOPIC = "esys/RushB/data"
+data = 0x86
+client.publish(TOPIC,bytes(data,'utf-8'))
+
