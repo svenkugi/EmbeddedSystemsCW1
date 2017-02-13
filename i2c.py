@@ -144,13 +144,14 @@ while 1:
 	client.subscribe(b'esys/time')
 	client.check_msg()
 
+	# Equate object temperature (wall/chair) to ambient temperature 
 	if(cal):
 		bias = object_temp-local_temp
 
 
 #-------------------------Sending Data over MQTT------------------------#
 	#Character Encoding for str instances is by Default UTF-8
-	client.publish(b"esys/RushB/Data", json.dumps({"Time": rtc.datetime(), "Data": {"Occupancy":presence, "Brightness":lux_avg, "AmbientTemperature":local_temp}}))
+	client.publish(b"esys/RushB/Data", json.dumps({"MachineId": id, "Time": rtc.datetime(), "Data": {"Presence":presence, "Brightness":lux_avg, "AmbientTemperature":local_temp}}))
 	#client.publish(b"esys/RushB/Data", json.dumps({"Time": rtc.datetime(), "Brightness":lux_avg}))
 	#client.publish(b"esys/RushB/Data/Temperature", json.dumps({"Time": rtc.datetime(), "Person Temperature":object_temp, "Local Temperature":local_temp}))
 	
