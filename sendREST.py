@@ -2,7 +2,7 @@ import requests
 import json
 import paho.mqtt.client as mqtt
 
-#CREATE TABLE sensorData (id INT NOT NULL IDENTITY(1,1), sensorID INT, time_data TIMESTAMP, temperature INT, lux INT, presence INT);
+#CREATE TABLE sensorData (id INT NOT NULL IDENTITY(1,1), sensorID INT, time_data TIMESTAMP, temperature INT, lux INT, presence INT, humidity INT);
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
@@ -27,3 +27,4 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 client.connect("", 1883, 60)
+
