@@ -18,13 +18,13 @@ def on_message(client, userdata, msg):
 	#data = json.loads(msg.payload)
 	#data = {"id": 100, "time": "01/11/95 12:00:32.001", "data": {"presence": 1, "lux": 300, "temperature": 22}}
 	#data_json = json.dumps(data)
-	response = requests.post("http://embeddedsystems.azurewebsites.net/api.php", data=msg.payload)
-	print(msg.topic+" "+str(msg.payload))
-	print(response.text)
+    response = requests.post("http://embeddedsystems.azurewebsites.net/api.php", data=msg.payload)
+    print(msg.topic+" "+str(msg.payload))
+    print(response.text)
 
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("", 1883, 60)
+client.connect("192.168.0.10", 1883, 60)
 
