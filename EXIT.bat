@@ -1,0 +1,1 @@
+"D:\Program Files (x86)\mosquitto\mosquitto_pub.exe" -t "esys/RushB/User" -m "exit"
