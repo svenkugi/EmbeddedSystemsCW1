@@ -10,31 +10,28 @@ import time
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
 	print("Connected to broker with result code "+str(rc))
-	client.subscribe("$SYS/broker/clients/connected")
-	client.subscribe("esys/RushB/+")
+	client.subscribe("esys/RushB/Data")
+	client.subscribe("esys/RushB/Bias")
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
-	if msg.topic == "esys/RushB/Init":
-		print("KnockKnock connected, sending time:")
-		time.sleep(2)
-		j = {"date":datetime.datetime.now().isoformat()}
-		client.publish("esys/RushB/time", json.dumps(j))
-	elif msg.topic == "esys/RushB/Data":
-		print(msg.topic+" "+str(msg.payload))
+	global bias
+	if msg.topic == "esys/RushB/Data":
 		jsonData = json.loads(msg.payload.decode('utf-8')) #decode from bytes to utf-8 and convert to JSON
-		jsonData["MachineId"] = int(jsonData["MachineId"],16) #convert hex machineid to hex
-		response = requests.post("http://embeddedsystems.azurewebsites.net/api.php", data=json.dumps(jsonData))
-		print(response)
-	else:
-		print(msg.topic+" "+str(msg.payload))
+		prevDist = jsonData["Data"]["Distance"]["Previous"]
+		curDist = jsonData["Data"]["Distance"]["Current"]
+		sqDiff = jsonData["Data"]["Distance"]["SqDiff"]
+		tempDiff = jsonData["Data"]["Point Temperature"]-jsonData["Data"]["AmbientTemperature"]
+		print("Diff: " + str(abs(curDist-prevDist)) + " SqDiff: " + str(sqDiff) + " Temp Diff: " + str(tempDiff) + " Bias Diff: " + str(tempDiff-bias) + " Presence: " + str(jsonData["Data"]["Presence"]))
+	elif msg.topic == "esys/RushB/Bias":
+		bias = float(msg.payload)
 		
+global bias
+bias = 0
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
 client.connect("localhost", 1883, 60)
-j = {"date":datetime.datetime.now().isoformat()}
-client.publish("esys/RushB/time", json.dumps(j))
 client.loop_forever()
 
