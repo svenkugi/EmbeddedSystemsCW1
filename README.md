@@ -1,5 +1,3 @@
-# Embedded Systems CW1
-
 # Main Python Script to be run on EPS8266 Board
 
 ### Implementation Scripts 
