@@ -1,5 +1,6 @@
 # MQTT scripts to be run on the host
 Windows batch scripts automate the starting of the mosquitto MQTT server and the relevant python scripts.
+Note the batch scripts have absolute paths to the mosquitto executables.
 
 ### High-level scripts
 - RUN.bat:	Starts the host by starting a mosquitto server and the python host script
