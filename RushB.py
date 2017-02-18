@@ -15,7 +15,7 @@ Si7021_ADDR = 0x40	# Humidity/Temperature Sensor Si7021: 0x40 (64)
 # Initialise I2C Bus, SCL (Pin 5) and SDA (Pin 4)
 i2c = I2C(-1, Pin(5), Pin(4))
 
-# Configure ADS-1115 Q1 ADC (Continuous Conversion Mode, Differential Mode, 128SPS and 2.048V FSR)
+# Configure ADS-1115 Q1 ADC (Continuous Conversion Mode, Differential Mode, 128SPS)
 configbuf = b'\x01\x04\x83'
 i2c.writeto(HRLV_ADDR, configbuf)
 
@@ -23,7 +23,7 @@ i2c.writeto(HRLV_ADDR, configbuf)
 configbuf = b'\x02\x15\x40'
 i2c.writeto(TMP007_ADDR, configbuf)
 
-# Configure TSL2561 Sensor (Word Read, Power Up)
+# Configure TSL2561 Sensor (Block Word Read, Power Up)
 configbuf = b'\x80\x03'
 i2c.writeto(TSL2561_ADDR, configbuf)
 
@@ -46,7 +46,7 @@ client = MQTTClient(id,brokerAddr)
 client.connect()
 client.publish(b"esys/RushB/Init", b"Initial connection")
 
-# Setting time using subscribe method; Broker sends time 
+# Setting time using subscribe method; Broker sends time and ESP8266 waits until time received
 # Note Micropython uses 0-6 for weekday, but RTC module uses 1-7 -> Hence off-error of 1
 def rtc_time(topic, message):
 	global date
@@ -224,6 +224,7 @@ while 1:
 	#-------------------------Sending Data over MQTT------------------------#
 
     # Convert rtc.datetime tuple form into mysql time format
+    # Done so that data sent to website can then be more easily formatted
 	tmp = list(map(str, rtc.datetime()))
 	for i in range(1, 6):
 		if (int(tmp[i]) < 9): 
