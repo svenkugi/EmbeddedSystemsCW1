@@ -178,10 +178,10 @@ def luminosity_read():
 
 while 1:
 	
-	distance_read()
-	temp_read()
-	humidity_read()
-	luminosity_read()
+	distance_read()		# Get Distance Measurements 
+	temp_read()		# Get Temperature Measurements 
+	humidity_read()		# Get Humidity Measurements 
+	luminosity_read()	# Get Brightness Measurements 
 	
 	# Detecting Movement and Presence of Person
 	# Statistical Algorithm that computes the sum of the square of distance differences: The resultant value is  
@@ -195,7 +195,7 @@ while 1:
 
 	# Person Detected using InfraRed Sensor and Distance Sensor. Infrared sensor detects a heat source by 
 	# distinguishing itself from ambient temperature. Human presence is then confirmed by regular movement, 
-	# done by statistical algorithm checking whether it is above a threshold. 
+	# done by statistical algorithm checking whether it is above a threshold (0.0001). 
 	try: 
 		if((abs(object_temp - bias - amb_temp)) > 1):	
 			if(distsq_sum > 0.0001):  
@@ -239,7 +239,7 @@ while 1:
 
 	str_time = tmp[0] + "-" + tmp[1] + "-" + tmp[2] + " " +  tmp[4] + ":" +  tmp[5] + ":" + tmp[6]
 
-    	# Character Encoding for str instances is by Default UTF-8
+    	# Character Encoding in JSON Objects for str instances is by Default UTF-8
 	try:
 		client.publish(b"esys/RushB/Data", json.dumps({"MachineId": id, "Time": str_time, "Data": {"Presence":presence, "Distance":{"Previous": dist_prev, "Current": dist, "SqDiff": distsq_sum}  , "Brightness":lux_avg, "Point Temperature": object_temp, "AmbientTemperature":amb_temp, "Humidity":humidity_avg}}))
 
@@ -250,7 +250,7 @@ while 1:
 		client.disconnect()
 		sys.exit("ERROR: Send data")
 
-	#Debug Statement: Message Sent if Blue LED turns off
+	# Debug Statement: Message Sent if Blue LED turns off
 	led_blue.value(1)
 	time.sleep(3)
 	led_blue.value(0)
