@@ -224,8 +224,8 @@ while 1:
 
 	#-------------------------Sending Data over MQTT------------------------#
 
-    # Convert rtc.datetime tuple form into mysql time format
-    # Done so that data sent to website can then be more easily formatted
+    	# Convert rtc.datetime tuple form into mysql time format
+    	# Done so that data sent to website can then be more easily formatted
 	tmp = list(map(str, rtc.datetime()))
 	for i in range(1, 6):
 		if (int(tmp[i]) < 9): 
@@ -233,7 +233,7 @@ while 1:
 
 	str_time = tmp[0] + "-" + tmp[1] + "-" + tmp[2] + " " +  tmp[4] + ":" +  tmp[5] + ":" + tmp[6]
 
-    # Character Encoding for str instances is by Default UTF-8
+    	# Character Encoding for str instances is by Default UTF-8
 	try:
 		client.publish(b"esys/RushB/Data", json.dumps({"MachineId": id, "Time": str_time, "Data": {"Presence":presence, "Distance":{"Previous": dist_prev, "Current": dist, "SqDiff": distsq_sum}  , "Brightness":lux_avg, "Point Temperature": object_temp, "AmbientTemperature":amb_temp, "Humidity":humidity_avg}}))
 
