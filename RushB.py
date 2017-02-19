@@ -9,7 +9,7 @@ from umqtt.simple import MQTTClient
 
 HRLV_ADDR = 0x49 	# ADS 1115-Q1 [Ultra-Sonic Radar Sensor HRLV-EZ1]: 0x49 (73)
 TMP007_ADDR = 0x44 	# Infra-Red Thermophile Sensor TMP007: 0x44 (68)
-TSL2561_ADDR = 0x39 # Luminosity Sensor TSL2561: 0x39 (57)
+TSL2561_ADDR = 0x39 	# Luminosity Sensor TSL2561: 0x39 (57)
 Si7021_ADDR = 0x40	# Humidity/Temperature Sensor Si7021: 0x40 (64)
 
 # Initialise I2C Bus, SCL (Pin 5) and SDA (Pin 4)
@@ -32,7 +32,7 @@ configbuf = b'\xE6\x3E'
 i2c.writeto(Si7021_ADDR, configbuf)
 
 # Configure LED States (Active Low)
-led_red = Pin(0, Pin.OUT, value=1) #GPIO Pin 0
+led_red = Pin(0, Pin.OUT, value=1) 	#GPIO Pin 0
 led_blue = Pin(2, Pin.OUT, value=1)	#GPIO Pin 2
 
 #-----------------Initialise MQTT and Time------------------#
@@ -46,7 +46,7 @@ client = MQTTClient(id,brokerAddr)
 client.connect()
 client.publish(b"esys/RushB/Init", b"Initial connection")
 
-# Setting time using subscribe method; Broker sends time and ESP8266 waits until time received
+# Setting time using subscribe method: Broker sends time and ESP8266 waits until time received
 # Note Micropython uses 0-6 for weekday, but RTC module uses 1-7 -> Hence off-error of 1
 def rtc_time(topic, message):
 	global date
@@ -178,9 +178,10 @@ while 1:
 	luminosity_read()
 	
 	# Detecting Movement and Presence of Person
-	# Statistical Algorithm that computes the sum of the square of distances: The resultant value is compared 
-	# to a threshold (which has been calculated when there is just noise so no movement). This algorithm proved
-	# very effective in confirming the presence of a human 
+	# Statistical Algorithm that computes the sum of the square of distance differences: The resultant value is  
+	# compared to a threshold, which has been calculated when there is just noise so no movement. This algorithm 
+	# proved most effective in confirming the presence of a person. Squaring the values has the effect of amplifying 
+	# large values (movement) more while attenuating smaller values (noise). 
 	diff = abs(dist_prev - dist) 
 	dist_buf = [diff] + dist_buf[0:4]
 
@@ -188,7 +189,7 @@ while 1:
 
 	# Person Detected using InfraRed Sensor and Distance Sensor. Infrared sensor detects a heat source by 
 	# distinguishing itself from ambient temperature. Human presence is then confirmed by regular movement, 
-	# done by statistical algorithm checking whether it is above a threshold 
+	# done by statistical algorithm checking whether it is above a threshold. 
 	try: 
 		if((abs(object_temp - bias - amb_temp)) > 1):	
 			if(distsq_sum > 0.0001):  
