@@ -37,9 +37,15 @@ led_blue = Pin(2, Pin.OUT, value=1)	#GPIO Pin 2
 
 #-----------------Initialise MQTT and Time------------------#
 
+# Disabling EPS8266 Wifi-Access Point 
+ap_if = network.WLAN(network.AP_IF)
+ap_if.active(False)
+sta_if = network.WLAN(network.STA_IF) 
+sta_if.connect('EEERover', 'exhibition')
+
 # Connection to MQTT Server
 id = ubinascii.hexlify(machine.unique_id())
-brokerAddr = b"192.168.4.65"
+brokerAddr = b"192.168.0.10"
 client = MQTTClient(id,brokerAddr)
 
 # Send Initial Status to confirm successful connection 
