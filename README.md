@@ -10,4 +10,4 @@
 - gui_website.py: GUI Application displaying sensor data, collecting from Cloud Website
 
 ### MQTT Host Scripts 
-- mqttHostScripts: Contains batch script and implementation files for server side connection (Cloud)
+- mqttHostScripts: Contains batch script and implementation files for cloud server side connection
