@@ -198,33 +198,33 @@ class ViewAll(tk.Frame):
         
         
         ##Set up various panels as frames
-        controlPanel =tk.Frame(self,width=50,height=720) #control panel
-        graphPanel=tk.Frame(self,width=1230,height=720) #graph panel
-        controlPanel.pack(side=tk.LEFT,fill=tk.Y,expand=True)
-        graphPanel.pack(side=tk.RIGHT,fill=tk.BOTH,expand=True)
+        controlPanel =tk.Frame(self,width=1230,height=20) #control panel
+        graphPanel=tk.Frame(self,width=1230,height=700) #graph panel
+        controlPanel.pack(side=tk.TOP,fill=tk.BOTH,expand=True)
+        graphPanel.pack(side=tk.BOTTOM,fill=tk.BOTH,expand=True)
         
         ##Panel labels
-        graphLabel = tk.Label(graphPanel, text="Sensor Outputs", font=LARGE_FONT)
-        controlLabel=tk.Label(controlPanel,text="Control Panel",font=LARGE_FONT)
-        graphLabel.pack(side=tk.TOP)
-        controlLabel.pack(side=tk.TOP)
+        #graphLabel = tk.Label(graphPanel, text="Sensor Outputs", font=LARGE_FONT)
+        #controlLabel=tk.Label(controlPanel,text="Control Panel",font=LARGE_FONT)
+        #graphLabel.pack(side=tk.TOP)
+        #controlLabel.pack(side=tk.TOP)
 
         ##control pannel buttons
-        messageB=ttk.Button(controlPanel,text="Warning test",command=lambda:popupmsg("Warning test"))
-        messageB.pack()
+##        messageB=ttk.Button(controlPanel,text="Warning test",command=lambda:popupmsg("Warning test"))
+##        messageB.pack(side=tk.LEFT)
 
-        pauseB = ttk.Button(controlPanel,text="Pause",command=lambda:loadData("pause"))
-        resumeB = ttk.Button(controlPanel,text="Resume",command=lambda:loadData("resume"))
+        #pauseB = ttk.Button(controlPanel,text="Pause",command=lambda:loadData("pause"))
+        #resumeB = ttk.Button(controlPanel,text="Resume",command=lambda:loadData("resume"))
         
-        pauseB.pack()
-        resumeB.pack()
+        #pauseB.pack()
+        #resumeB.pack()
 
         viewLess=ttk.Button(controlPanel,text="View Less",
                             command=lambda:controller.show_frame(ViewLess))
-        viewLess.pack()
+        viewLess.pack(side=tk.RIGHT)
 
-        calibrateB=ttk.Button(controlPanel,text="Calibrate")
-        calibrateB.pack()
+        calibrateB=ttk.Button(controlPanel,text="Calibrate",command=lambda:calibrate())
+        calibrateB.pack(side=tk.RIGHT)
         
         ##Set up Plot Canvases       
         canvas_btc = FigureCanvasTkAgg(f,graphPanel)#sensor canvas
@@ -250,33 +250,33 @@ class ViewLess(tk.Frame):
         
                 
         ##Set up various panels as frames
-        controlPanel =tk.Frame(self,width=50,height=350) #control panel
-        graphPanel=tk.Frame(self,width=650,height=350) #graph panel
-        controlPanel.pack(side=tk.LEFT,fill=tk.Y,expand=True)
-        graphPanel.pack(side=tk.RIGHT,fill=tk.BOTH,expand=True)
+        controlPanel =tk.Frame(self,width=650,height=20) #control panel
+        graphPanel=tk.Frame(self,width=650,height=330) #graph panel
+        controlPanel.pack(side=tk.TOP,fill=tk.BOTH,expand=True)
+        graphPanel.pack(side=tk.BOTTOM,fill=tk.BOTH,expand=True)
         
         ##Panel labels
-        graphLabel = tk.Label(graphPanel, text="Sensor Outputs", font=LARGE_FONT)
-        controlLabel=tk.Label(controlPanel,text="Control Panel",font=LARGE_FONT)
-        graphLabel.pack(side=tk.TOP)
-        controlLabel.pack(side=tk.TOP)
+##        graphLabel = tk.Label(graphPanel, text="Sensor Outputs", font=LARGE_FONT)
+##        controlLabel=tk.Label(controlPanel,text="Control Panel",font=LARGE_FONT)
+##        graphLabel.pack(side=tk.TOP)
+##        controlLabel.pack(side=tk.TOP)
 
         ##control pannel buttons
-        messageB=ttk.Button(controlPanel,text="Warning test",command=lambda:popupmsg("Warning test"))
-        messageB.pack()
+##        messageB=ttk.Button(controlPanel,text="Warning test",command=lambda:popupmsg("Warning test"))
+##        messageB.pack(side=tk.LEFT)
 
-        pauseB = ttk.Button(controlPanel,text="Pause",command=lambda:loadData("pause"))
-        resumeB = ttk.Button(controlPanel,text="Resume",command=lambda:loadData("resume"))
+        #pauseB = ttk.Button(controlPanel,text="Pause",command=lambda:loadData("pause"))
+        #resumeB = ttk.Button(controlPanel,text="Resume",command=lambda:loadData("resume"))
         
-        pauseB.pack()
-        resumeB.pack()
+        #pauseB.pack()
+        #resumeB.pack()
 
         viewAll=ttk.Button(controlPanel,text="View all",
                             command=lambda:controller.show_frame(ViewAll))
-        viewAll.pack()
+        viewAll.pack(side=tk.RIGHT)
 
-        calibrateB=ttk.Button(controlPanel,text="Calibrate")
-        calibrateB.pack()
+        calibrateB=ttk.Button(controlPanel,text="Calibrate",command=lambda:calibrate())
+        calibrateB.pack(side=tk.RIGHT)
         
         ##Set up Plot Canvases       
         canvas_btc = FigureCanvasTkAgg(f1,graphPanel)#sensor canvas
@@ -303,5 +303,3 @@ ani2 = animation.FuncAnimation(f1,animate,interval=2000)
 ani1 = animation.FuncAnimation(f,animate,interval=2000)
 app.mainloop()
 
-
-        
