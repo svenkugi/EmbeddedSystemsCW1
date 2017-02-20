@@ -56,3 +56,10 @@ At this point, the data can then be extracted by the GUI or the cloud server.
 
 - **mqttHostScripts**: Contains batch script and implementation files for cloud server side connection
 
+## Website 
+
+http://embeddedsystems.azurewebsites.net/#portfolio
+
+Dashboard 
++ Username: testuser
++ Password: mypassword
