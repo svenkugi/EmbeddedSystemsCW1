@@ -1,4 +1,4 @@
-# Team RushB Coursework 1 Python Script
+# Team RushB CW1 Python Script
 
 ## Sensor Communication and MQTT Publishing Script
 - RushB.py: Main Python Script File communicating with Sensors and ESP8266 Wifi Board 
