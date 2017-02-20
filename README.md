@@ -1,4 +1,4 @@
-# Team RushB CW1 Python Script
+# Team RushB CW1 Python Scripts
 
 ## Sensor Communication and MQTT Publishing Script
 
