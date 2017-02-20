@@ -1,6 +1,6 @@
 # Python Script run on EPS8266 Board
 
-## EPS8266 Sensor Communication and MQTT Publishing Script
+## Sensor Communication and MQTT Publishing Script
 - RushB.py: Main Python Script File communicating with Sensors and ESP8266 Wifi Board 
 
 This file contains the main code that establishes I2C communication and configures the setting and mode for the following sensors:  
