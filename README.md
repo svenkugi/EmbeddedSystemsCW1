@@ -3,7 +3,6 @@
 ## EPS8266 Sensor Communication and MQTT Publishing Script
 - RushB.py: Main Python Script File communicating with Sensors and ESP8266 Wifi Board 
 
-### Description 
 This file contains the main code that establishes I2C communication and configures the setting and mode for the following sensors:  
 + HRLV-EZ1 Ultra-Sonic Radar Sensor
 + TMP007 Infrared Thermophile Sensor
