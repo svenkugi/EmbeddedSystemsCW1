@@ -60,7 +60,7 @@ def rtc_time(topic, message):
 	date = time['date']
 
 client.set_callback(rtc_time)
-client.subscribe(b'esys/RushB/time')
+client.subscribe(b'esys/time')
 client.wait_msg()
 
 # Extract strings from RCF-339 Format in order to format 
