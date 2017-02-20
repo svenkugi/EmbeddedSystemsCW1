@@ -1,8 +1,6 @@
-# Main Python Script to be run on EPS8266 Board
+# Python Script run on EPS8266 Board
 
-
-
-## EPS8266 Implementation Scripts 
+## EPS8266 Sensor Communication and MQTT Publishing Script
 - RushB.py: Main Python Script File communicating with Sensors and ESP8266 Wifi Board 
 
 ### Description 
