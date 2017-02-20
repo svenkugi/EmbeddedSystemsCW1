@@ -32,7 +32,7 @@ At this point, the data can then be extracted by the GUI or the cloud server.
 - **gui_mqtt.py**: GUI Application displaying sensor data, collecting from MQTT Broker 
 - **gui_website.py**: GUI Application displaying sensor data, collecting from Cloud Website
 
-### Functionalities:
+### Functionalities
 
 1. Displays live presence/absence and environment data
 2. Alerts the user based on following criteria
@@ -40,7 +40,7 @@ At this point, the data can then be extracted by the GUI or the cloud server.
  + Environmental variables around the user exceeding preset thrsholds.
  + Note that alerts can only be switched off by obeying the instructions on the warning page
  
-### View Modes:
+### View Modes
 
 1. Compact view: Minimalistic view mode relaying only the essential data
  + Displays only the live binary presence(1)/absence(0) data on the time graph 
