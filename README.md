@@ -8,7 +8,7 @@
 ## Local GUI Application
 - gui_mqtt.py: GUI Application displaying sensor data, collecting from MQTT Broker 
 - gui_website.py: GUI Application displaying sensor data, collecting from Cloud Website
-View Modes:
+### View Modes:
 1. Compact view: Minimalistic view mode relaying only the essential data
  + Displays only the live binary presence(1)/absence(0) data on the time graph 
  + Colour changing label displays the latest presence/absence status based on live data in green or red
@@ -19,7 +19,7 @@ View Modes:
   ⋅⋅* Humidity
   ⋅⋅* Luminosity
              
-Functionalities:
+### Functionalities:
 1. Displays live presence/absence and environment data
 2. Alerts the user based on following criteria
  + Time spent continuously in front of the device exceeding a preset limit
