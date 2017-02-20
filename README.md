@@ -16,9 +16,9 @@
 2. Full view: Provides a detailed overview of the environment around the user.
  + Displays the live binary presence(1)/absence(0) data on the time graph
  + Displays live data on environment variables:
-  ⋅⋅* Ambient temperature
-  ⋅⋅* Humidity
-  ⋅⋅* Luminosity
+ + Ambient temperature
+ + Humidity
+ + Luminosity
              
 ### Functionalities:
 1. Displays live presence/absence and environment data
