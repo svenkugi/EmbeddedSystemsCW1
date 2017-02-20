@@ -2,7 +2,7 @@
 
 ## Sensor Communication and MQTT Publishing Script
 
-- RushB.py: Main Python Script File communicating with sensors and ESP8266 Wifi Board 
+- **RushB.py**: Main Python Script File communicating with sensors and ESP8266 Wifi Board 
 
 ### Functionalities 
 
@@ -29,8 +29,8 @@ At this point, the data can then be extracted by the GUI or the cloud server.
 
 ## GUI Application Script
 
-- gui_mqtt.py: GUI Application displaying sensor data, collecting from MQTT Broker 
-- gui_website.py: GUI Application displaying sensor data, collecting from Cloud Website
+- **gui_mqtt.py**: GUI Application displaying sensor data, collecting from MQTT Broker 
+- **gui_website.py**: GUI Application displaying sensor data, collecting from Cloud Website
 
 ### Functionalities:
 
@@ -54,5 +54,5 @@ At this point, the data can then be extracted by the GUI or the cloud server.
 
 ## MQTT Host Scripts
 
-- mqttHostScripts: Contains batch script and implementation files for cloud server side connection
+- **mqttHostScripts**: Contains batch script and implementation files for cloud server side connection
 
