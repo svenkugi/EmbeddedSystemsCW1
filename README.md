@@ -15,16 +15,16 @@ View Modes:
 2. Full view: Provides a detailed overview of the environment around the user.
  + Displays the live binary presence(1)/absence(0) data on the time graph
  + Displays live data on environment variables:
- + Ambient temperature
- + Humidity
- + Luminosity
+  + Ambient temperature
+  + Humidity
+  + Luminosity
              
 Functionalities:
 1. Displays live presence/absence and environment data
 2. Alerts the user based on following criteria
-+ Time spent continuously in front of the device exceeding a preset limit
-+ Environmental variables around the user exceeding preset thrsholds.
-+ Note that alerts can only be switched off by obeying the instructions on the warning page
+ + Time spent continuously in front of the device exceeding a preset limit
+ + Environmental variables around the user exceeding preset thrsholds.
+ + Note that alerts can only be switched off by obeying the instructions on the warning page
 
 ## MQTT Host Scripts 
 - mqttHostScripts: Contains batch script and implementation files for cloud server side connection
