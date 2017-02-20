@@ -10,14 +10,14 @@
 - gui_website.py: GUI Application displaying sensor data, collecting from Cloud Website
 View Modes:
 1. Compact view: Minimalistic view mode relaying only the essential data
-+ Displays only the live binary presence(1)/absence(0) data on the time graph 
-+ Colour changing label displays the latest presence/absence status based on live data in green or red
+ + Displays only the live binary presence(1)/absence(0) data on the time graph 
+ + Colour changing label displays the latest presence/absence status based on live data in green or red
 2. Full view: Provides a detailed overview of the environment around the user.
-+ Displays the live binary presence(1)/absence(0) data on the time graph
-+ Displays live data on environment variables:
-+ Ambient temperature
-+ Humidity
-+ Luminosity
+ + Displays the live binary presence(1)/absence(0) data on the time graph
+ + Displays live data on environment variables:
+ + Ambient temperature
+ + Humidity
+ + Luminosity
              
 Functionalities:
 1. Displays live presence/absence and environment data
