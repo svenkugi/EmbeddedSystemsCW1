@@ -58,7 +58,7 @@ At this point, the data can then be extracted by the GUI or the cloud server.
 
 ## Website 
 
-http://embeddedsystems.azurewebsites.net/#portfolio
+http://embeddedsystems.azurewebsites.net/
 
 Dashboard 
 + Username: testuser
