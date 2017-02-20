@@ -6,13 +6,13 @@
 - RushB.py: Main Python Script File communicating with Sensors and ESP8266 Wifi Board 
 
 ### Description 
-This file contains the main code that establishes I^2 C communication and configures the setting and mode for the following sensors:  
+This file contains the main code that establishes I2C communication and configures the setting and mode for the following sensors:  
 + HRLV-EZ1 Ultra-Sonic Radar Sensor
 + TMP007 Infrared Thermophile Sensor
 + Si7021 Humidity Sensor
 + TSL2561 Luminosity Sensor
 
-It also sets up the connection to the MQTT broker, whereupon the real time clock module on the EPS8266 board is first initialized with a subscription to 'esys/time'. Thereafter, sensor data is regularly collected via I^2 C and either filtered or processed using the statistical algorithm. Finally, the processed data is then formatted as a JSON object and regularly published to the MQTT broker. At this point, the data can then be extracted by the GUI or the cloud server. 
+It also sets up the connection to the MQTT broker, whereupon the real time clock module on the EPS8266 board is first initialized with a subscription to 'esys/time'. Thereafter, sensor data is regularly collected via I2C and either filtered or processed using the statistical algorithm. Finally, the processed data is then formatted as a JSON object and regularly published to the MQTT broker. At this point, the data can then be extracted by the GUI or the cloud server. 
 
 ## Local GUI Application
 - gui_mqtt.py: GUI Application displaying sensor data, collecting from MQTT Broker 
