@@ -30,7 +30,10 @@ At this point, the data can then be extracted by the GUI or the cloud server.
 ## GUI Application Script
 
 - **gui_mqtt.py**: GUI Application displaying sensor data, collecting from MQTT Broker 
+ +Includes notification capabilities based on length of sitting, temperature, humidity, luminosity
 - **gui_website.py**: GUI Application displaying sensor data, collecting from Cloud Website
+ +Does not include aforementioned notification capabilities
+ +Designed to be as a desktop version of the website dashboard (view data only)
 
 ### Functionalities
 
